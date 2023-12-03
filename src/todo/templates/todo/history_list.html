@@ -1,0 +1,44 @@
+{% extends "todo/base.html" %}
+{% block header %}
+    <h1>History</h1>
+    <div class="nav">
+        <a href="{% url 'task_list' %}">Back</a>
+    </div>
+{% endblock header %}
+{% block content %}
+    <div class="content_heading">
+        <h1 class="content-title">Tasks completed</h1>
+    </div>
+    <div class="form">
+        <form action="" method="get" class="search-form">
+            {% csrf_token %}
+            <input type="search" name="search_query" id="search" placeholder="Search task">
+            {% if request.GET.search_query %}
+                <div class="filter">
+                    <a href="{% url 'history' %}">All tasks</a>
+                </div>
+            {% endif %}
+            {% if histories.count %}
+                <p class="clean"><a href="{% url 'history_clean' %}" class="danger">Clean histories</a></p>
+            {% endif %}
+        </form>
+    </div>
+    <div class="tasks">
+        {% for task in histories %}
+            <div class="task task-complete">
+                <p>
+                    <a href="{% url 'task_update' task.task_completed.pk %}">{{ task.task_completed }}</a>
+                    <span class="date">{{ task.date_complete }}</span>
+                </p>
+                <div><a href="{% url 'task_incompleted' task.task_completed.pk %}" class="circle complete"></a></div>
+            </div>
+        {% empty %}
+        <div class="task empty">
+            <h3>You don't have task completed.</h3>
+            <div>
+                <a href="{% url 'task_list' %}" class="button">Task List</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

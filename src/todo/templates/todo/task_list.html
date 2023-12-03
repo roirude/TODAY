@@ -1,0 +1,44 @@
+{% extends "todo/base.html" %}
+{% block header %}
+    {% if request.user.is_authenticated %}
+    <h1>Hello, {{ request.user.username }}</h1>
+    <p class="nav"><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+    <h1>Hello Stranger</h1>
+    {% endif %}
+{% endblock header %}
+{% block content %}
+    <div class="content_heading">
+        <h1 class="content-title">task list</h1>
+        <div>
+            <a href="{% url 'history' %}" class="button">History</a>
+        </div>
+    </div>
+    <div class="form">
+        <form action="" method="get" class="search-form">
+            {% csrf_token %}
+            <input type="search" name="search_query" id="search" placeholder="Search Task">
+        </form>
+        
+        {% if request.GET.search_query %}
+            <div class="filter">
+                <a href="{% url 'task_list' %}">All tasks</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="tasks">
+        {% for task in tasks %}
+            <div class="task">
+                <p><a href="{% url 'task_update' task.pk %}">{{ task.title }}</a></p>
+                <div><a href="{% url 'task_completed' task.pk %}" class="circle incomplete"></a></div>
+            </div>
+            {% empty %}
+                <div class="task empty">
+                    <h3>You don't have task.</h3>
+                </div>
+        {% endfor %}
+    </div>
+    <div>
+        <a href="{% url 'add_task' %}" class="button button-circle">+</a>
+    </div>
+{% endblock content %}

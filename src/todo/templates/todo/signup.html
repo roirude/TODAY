@@ -1,0 +1,27 @@
+{% extends "todo/base.html" %}
+{% block header %}
+    <h1>SignUp</h1>
+{% endblock header %}
+
+{% block content %}
+    <form method='post' class="signup-form">
+        {% csrf_token %}
+        <div class="input">
+            <label for="">{{ form.username.label }}</label>
+            <p class="">{{ form.username }}</p>
+        </div>
+        <div class="input">
+            <label for="">{{ form.password1.label }}</label>
+            <p class="">{{ form.password1 }}</p>
+        </div>
+        <div class="input">
+            <label for="">{{ form.password2.label }}</label>
+            <p class="">{{ form.password2 }}</p>
+        </div>
+        <input type="submit" value="Signup" class="button">
+    </form>
+    <div class='advest'>
+        <small>You have an account ?</small>
+        <a href='{% url "login" %}'>Login</a>
+    </div>
+{% endblock content %}

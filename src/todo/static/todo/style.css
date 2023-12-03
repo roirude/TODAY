@@ -1,0 +1,267 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --primary-color : rgb(131,58,180); */
+    --text-color: #ffffff;
+    --primary-color : linear-gradient(63deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    --secondary-color : rgb(131,58,180); 
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: rgb(242, 232, 249);
+}
+
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+}
+
+.header {
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 30px 20px;
+    display: flex;
+    position: relative;
+}
+
+.nav {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border-bottom: 2px solid;
+    transition: all ease-in-out 250ms;
+}
+
+.nav a {
+    text-decoration: none;
+    transition: all ease-in-out 250ms;
+    background-color: #ffffff00;
+    color: var(--text-color);
+}
+
+.nav:hover, .nav a:hover {
+    color: #000;
+}
+
+.content {
+    padding: 20px 30px;
+    height: 500px;
+    min-width: 370px;
+}
+
+.content_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.content-title {
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 2px solid;
+    border-color:  rgb(131,58,180);
+    border-radius: 10px;
+    width: 100%;
+    outline: none;
+    font-size: medium;
+    outline: none;
+    transition: all ease-in-out 200ms;
+}
+
+input:focus, textarea:focus {
+    border: 2px solid;
+}
+
+.search-form {
+    margin-bottom: 10px;
+}
+
+.filter a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.filter a:hover {
+    text-decoration: underline;
+}
+
+.button {
+    background: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 25px;
+    font-size: 14px;
+    transition: all ease-in-out 250ms;
+    display: block;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    color: #000;
+}
+
+.button-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    padding: initial;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.circle {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.incomplete, .complete:hover {
+    background: #cecece;
+    transition: all ease-in-out 200ms;
+}
+
+
+.complete, .incomplete:hover {
+    background : #008552;
+}
+
+.tasks {
+    overflow-y: scroll;
+    height: 350px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.task p a {
+    color: #000;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.task-complete p a {
+    text-decoration: line-through;
+}
+
+.empty {
+    color: #0000009a;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.date {
+    display: block;
+    font-size: small;
+    font-style: italic;
+    color: #0000009a;
+}
+
+.danger {
+    color: rgb(209, 10, 10);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.clean {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.danger:hover {
+    text-decoration: underline;
+}
+
+.input {
+    margin-bottom: 20px;
+}
+
+input[type="submit"]:hover, input[type="submit"] {
+    outline: none;
+    border: none;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+label {
+    display: flex;
+    margin-bottom: 5px;
+    font-style: italic;
+    font-weight: 500;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.delete {
+    margin-top: 10px;
+}
+
+.button-danger {
+    background: #000;
+    text-align: center;
+}
+
+.button-danger:hover {
+    background-color: rgb(209, 10, 10);
+    color: #fff;
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+.alert p span {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.advest {
+    margin-top: 20px;
+}
+
+.login-form {
+    margin-top: 70px;
+}
+
+.signup-form {
+    margin-top: 50px;
+}
+
+.advest a {
+   text-decoration: none;
+   color: rgb(131,58,180);
+   font-weight: 500;
+}
+
+.advest a:hover {
+    color: #000;
+    text-decoration: underline;
+}

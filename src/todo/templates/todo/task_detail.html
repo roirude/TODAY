@@ -1,0 +1,8 @@
+<a href="{% url 'task_list' %}">Go Back</a>
+<h1>TASK detail</h1>
+<span><a href="{% url 'task_update' task.pk %}">Update</a></span>
+<span><a href="{% url 'task_delete' task.pk %}">Delete</a></span>
+<div>
+    <h2>{{ task.title }}</h2>
+    <p>{{ task.description }}</p>
+</div>
